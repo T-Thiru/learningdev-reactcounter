@@ -35,7 +35,6 @@ footer {
 main {
   height: 600px;
   background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid gray;
 }
 .main-container {
   display: flex;
