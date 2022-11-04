@@ -1,49 +1,60 @@
 import "./App.css";
 import Logo from "./components/Logo";
-import PlusMinus from "./components/PlusMinus";
-import plus from "./img/plus.svg";
-import minus from "./img/minus.svg";
-import Display from "./components/Display";
+
 import { useState } from "react";
+import Counter from "./components/Counter";
+import AddCounter from "./components/AddCounter";
+import RemoveCounter from "./components/RemoveCounter";
 
 function App() {
-  const [counter, setCounter] = useState(0);
+  const [counterAdd, setCounterAdd] = useState(0);
+  const [displayCounter, setDisplayCounter] = useState([]);
   return (
     <>
       <header>
         <Logo />
       </header>
-      <main className="wrapper main-container">
-        <div className="container-counter">
-          {counter !== 0 ? (
+
+      <main>
+        <div>
+          {counterAdd !== 3 ? (
             <div
+              className="container-addRemovecounter"
               onClick={() => {
-                setCounter(counter - 1);
+                setCounterAdd(counterAdd + 1);
+                setDisplayCounter((displayCounter) => [
+                  ...displayCounter,
+                  <Counter />,
+                ]);
               }}
             >
-              <PlusMinus plusMinus={minus} />
+              <AddCounter />
             </div>
           ) : (
             ""
           )}
 
-          <div className="container-display">
-            <Display display={counter} height="H" />
+          {counterAdd > 0 ? (
             <div
+              className="container-addRemovecounter"
               onClick={() => {
-                setCounter(0);
+                setCounterAdd(counterAdd - 1);
+                const newTab = [...displayCounter];
+                newTab.pop();
+                setDisplayCounter(newTab);
               }}
             >
-              <Display display="Reset" />
+              <RemoveCounter />
             </div>
-          </div>
-          {counter !== 10 ? (
-            <div
-              onClick={() => {
-                setCounter(counter + 1);
-              }}
-            >
-              <PlusMinus plusMinus={plus} />
+          ) : (
+            ""
+          )}
+
+          {displayCounter.length < 4 ? (
+            <div className="wrapper main-container">
+              {displayCounter.map((el, index) => {
+                return <div key={index}>{el}</div>;
+              })}
             </div>
           ) : (
             ""
