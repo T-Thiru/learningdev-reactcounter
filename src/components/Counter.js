@@ -9,17 +9,13 @@ const Counter = () => {
   const [counter, setCounter] = useState(0);
   return (
     <div className="container-counter">
-      {counter !== 0 ? (
-        <div
-          onClick={() => {
-            setCounter(counter - 1);
-          }}
-        >
-          <PlusMinus plusMinus={minus} />
-        </div>
-      ) : (
-        ""
-      )}
+      <div
+        onClick={() => {
+          setCounter(counter - 1);
+        }}
+      >
+        <PlusMinus plusMinus={minus} disable />
+      </div>
 
       <div className="container-display">
         <Display display={counter} height="H" />

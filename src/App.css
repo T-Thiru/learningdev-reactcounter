@@ -46,6 +46,8 @@ main {
   display: flex;
   align-items: center;
   padding: 40px;
+  border: none;
+  background: none;
 }
 
 .display {

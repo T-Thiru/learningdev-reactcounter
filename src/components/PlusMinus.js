@@ -2,9 +2,9 @@ import React from "react";
 
 const PlusMinus = (props) => {
   return (
-    <div className="plusMinus">
+    <button type="button" className="plusMinus" disabled>
       <img src={props.plusMinus} alt="" />
-    </div>
+    </button>
   );
 };
 
