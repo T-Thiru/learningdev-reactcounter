@@ -1,11 +1,29 @@
 import React from "react";
 
-const PlusMinus = (props) => {
-  return (
-    <button type="button" className="plusMinus" disabled>
-      <img src={props.plusMinus} alt="" />
-    </button>
-  );
+const PlusMinus = ({ plusMinus, counter, setCounter }) => {
+  if (plusMinus === "plus") {
+    return;
+    <button
+      type="button"
+      className="plusMinus"
+      onClick={() => {
+        setCounter(counter + 1);
+      }}
+    >
+      <img src={plusMinus} alt="" />
+    </button>;
+  } else {
+    return;
+    <button
+      type="button"
+      className="plusMinus"
+      onClick={() => {
+        setCounter(counter - 1);
+      }}
+    >
+      <img src={plusMinus} alt="" />
+    </button>;
+  }
 };
 
 export default PlusMinus;
